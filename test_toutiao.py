@@ -129,6 +129,31 @@ print("*"*20)
 print(next(g))
 
 
+# 一个人有一瓶药，共100颗。每天，这个人都需要吃半片这种药。
+# 这个人的做法是，每次从药瓶里随机取一颗，如果是完整的一片，那么分成两半，服用半片，另外半片放回瓶中。如果正好是半片，那么直接服用。
+# 假定不管是整片还是半片，药片被抓取的概率都是相同的。试写程序去模拟这200天的服药过程。
+# 实例输出：
+# Day 1:Pill #5
+# Day 2:Pill #8
+# Day 3:Pill #5
+# ……
+# Day 200:Pill #40
+
+def get_pill():
+    days = [i for i in range(1, 21)]
+    pills = [i for i in range(1, 11)] * 2
+    result = {}
+    for day in days:
+        pill = random.choice(pills)
+        result[day] = pill
+        pills.remove(pill)
+
+    return result
+
+ret = get_pill()
+for k,v in ret.items():
+    output = "Day {0}: Pill # {1}". format(k, v)
+    print(output)
 
 
 
