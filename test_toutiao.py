@@ -188,6 +188,17 @@ if __name__ == "__main__":
     #nums = [5, 5, 5, 5, 1]
     #base = find_data(nums)
     #print(base)
+    
+
+原字典的value作为新字典key，原字典key作为新字典value，新字典的value为列表
+def value_key(ori_dict):
+    res_dict = {}
+    for k,v in ori_dict.items():
+        if v in res_dict:
+            res_dict[v].append(k)
+        else:
+            res_dict[v] = [k]
+    return res_dict
 
 
 
